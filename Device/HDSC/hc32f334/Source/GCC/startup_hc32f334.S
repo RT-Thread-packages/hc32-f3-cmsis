@@ -218,7 +218,7 @@ __Vectors:
                 .long       CMP3_Handler
                 .long       I2C_Handler
                 .long       USART1_Handler
-                .long       USART1_Txcomplete_Handler
+                .long       USART1_TxComplete_Handler
                 .long       SPI_Handler
                 .long       TMRA_5_Ovf_Udf_Handler
                 .long       TMRA_5_Cmp_Handler
