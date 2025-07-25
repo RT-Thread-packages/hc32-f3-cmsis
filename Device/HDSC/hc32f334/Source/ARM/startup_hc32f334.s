@@ -189,7 +189,7 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     CMP3_Handler
                 DCD     I2C_Handler
                 DCD     USART1_Handler
-                DCD     USART1_TCI_Handler
+                DCD     USART1_TxComplete_Handler
                 DCD     SPI_Handler
                 DCD     TMRA_5_Ovf_Udf_Handler
                 DCD     TMRA_5_Cmp_Handler
@@ -203,7 +203,7 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     USART3_TxComplete_Handler
                 DCD     USART4_Handler
                 DCD     USART4_TxComplete_Handler
-                DCD     PLA_Handler
+                DCD     0
                 DCD     USART1_WKUP_Handler
                 DCD     PWC_LVD1_Handler
                 DCD     PWC_LVD2_Handler
@@ -314,15 +314,15 @@ Default_Handler PROC
                 EXPORT  EXTINT13_SWINT29_Handler        [WEAK]
                 EXPORT  EXTINT14_SWINT30_Handler        [WEAK]
                 EXPORT  EXTINT15_SWINT31_Handler        [WEAK]
-                EXPORT  DMA_Error_Handler              [WEAK]
-                EXPORT  DMA_TC0_BTC0_Handler           [WEAK]
-                EXPORT  DMA_TC1_BTC1_Handler           [WEAK]
-                EXPORT  DMA_TC2_BTC2_Handler           [WEAK]
-                EXPORT  DMA_TC3_BTC3_Handler           [WEAK]
-                EXPORT  DMA_TC4_BTC4_Handler           [WEAK]
-                EXPORT  DMA_TC5_BTC5_Handler           [WEAK]
-                EXPORT  DMA_TC6_BTC6_Handler           [WEAK]
-                EXPORT  DMA_TC7_BTC7_Handler           [WEAK]
+                EXPORT  DMA_Error_Handler               [WEAK]
+                EXPORT  DMA_TC0_BTC0_Handler            [WEAK]
+                EXPORT  DMA_TC1_BTC1_Handler            [WEAK]
+                EXPORT  DMA_TC2_BTC2_Handler            [WEAK]
+                EXPORT  DMA_TC3_BTC3_Handler            [WEAK]
+                EXPORT  DMA_TC4_BTC4_Handler            [WEAK]
+                EXPORT  DMA_TC5_BTC5_Handler            [WEAK]
+                EXPORT  DMA_TC6_BTC6_Handler            [WEAK]
+                EXPORT  DMA_TC7_BTC7_Handler            [WEAK]
                 EXPORT  EFM_PEError_ReadCol_Handler     [WEAK]
                 EXPORT  EFM_OpEnd_Handler               [WEAK]
                 EXPORT  FPU_Error_Handler               [WEAK]
@@ -390,22 +390,22 @@ Default_Handler PROC
                 EXPORT  HRPWM_6_Ovf_Udf_Handler         [WEAK]
                 EXPORT  HRPWM_6_SCmp_Handler            [WEAK]
                 EXPORT  HRPWM_6_GCap_Handler            [WEAK]
-                EXPORT  MCANRAM_ECCError_Handler         [WEAK]
-                EXPORT  MCAN1_INT0_Handler               [WEAK]
-                EXPORT  MCAN1_INT1_Handler               [WEAK]
-                EXPORT  MCAN2_INT0_Handler               [WEAK]
-                EXPORT  MCAN2_INT1_Handler               [WEAK]
-                EXPORT  TMR4_GCmp_Handler             [WEAK]
-                EXPORT  TMR4_Ovf_Udf_Handler          [WEAK]
-                EXPORT  TMR4_Reload_Handler           [WEAK]
-                EXPORT  TMR4_SCmp_Handler             [WEAK]
+                EXPORT  MCANRAM_ECCError_Handler        [WEAK]
+                EXPORT  MCAN1_INT0_Handler              [WEAK]
+                EXPORT  MCAN1_INT1_Handler              [WEAK]
+                EXPORT  MCAN2_INT0_Handler              [WEAK]
+                EXPORT  MCAN2_INT1_Handler              [WEAK]
+                EXPORT  TMR4_GCmp_Handler               [WEAK]
+                EXPORT  TMR4_Ovf_Udf_Handler            [WEAK]
+                EXPORT  TMR4_Reload_Handler             [WEAK]
+                EXPORT  TMR4_SCmp_Handler               [WEAK]
                 EXPORT  CMP1_Handler                    [WEAK]
                 EXPORT  CMP2_Handler                    [WEAK]
                 EXPORT  CMP3_Handler                    [WEAK]
-                EXPORT  I2C_Handler                    [WEAK]
+                EXPORT  I2C_Handler                     [WEAK]
                 EXPORT  USART1_Handler                  [WEAK]
-                EXPORT  USART1_TCI_Handler              [WEAK]
-                EXPORT  SPI_Handler                    [WEAK]
+                EXPORT  USART1_TxComplete_Handler       [WEAK]
+                EXPORT  SPI_Handler                     [WEAK]
                 EXPORT  TMRA_5_Ovf_Udf_Handler          [WEAK]
                 EXPORT  TMRA_5_Cmp_Handler              [WEAK]
                 EXPORT  EVENT_PORT1_Handler             [WEAK]
@@ -418,7 +418,6 @@ Default_Handler PROC
                 EXPORT  USART3_TxComplete_Handler       [WEAK]
                 EXPORT  USART4_Handler                  [WEAK]
                 EXPORT  USART4_TxComplete_Handler       [WEAK]
-                EXPORT  PLA_Handler                     [WEAK]
                 EXPORT  USART1_WKUP_Handler             [WEAK]
                 EXPORT  PWC_LVD1_Handler                [WEAK]
                 EXPORT  PWC_LVD2_Handler                [WEAK]
@@ -551,7 +550,7 @@ CMP2_Handler
 CMP3_Handler
 I2C_Handler
 USART1_Handler
-USART1_TCI_Handler
+USART1_TxComplete_Handler
 SPI_Handler
 TMRA_5_Ovf_Udf_Handler
 TMRA_5_Cmp_Handler
@@ -565,7 +564,6 @@ USART3_Handler
 USART3_TxComplete_Handler
 USART4_Handler
 USART4_TxComplete_Handler
-PLA_Handler
 USART1_WKUP_Handler
 PWC_LVD1_Handler
 PWC_LVD2_Handler
