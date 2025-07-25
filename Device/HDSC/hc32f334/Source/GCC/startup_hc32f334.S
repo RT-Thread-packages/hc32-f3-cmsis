@@ -218,7 +218,7 @@ __Vectors:
                 .long       CMP3_Handler
                 .long       I2C_Handler
                 .long       USART1_Handler
-                .long       USART1_TCI_Handler
+                .long       USART1_Txcomplete_Handler
                 .long       SPI_Handler
                 .long       TMRA_5_Ovf_Udf_Handler
                 .long       TMRA_5_Cmp_Handler
@@ -232,7 +232,7 @@ __Vectors:
                 .long       USART3_TxComplete_Handler
                 .long       USART4_Handler
                 .long       USART4_TxComplete_Handler
-                .long       PLA_Handler
+                .long       0
                 .long       USART1_WKUP_Handler
                 .long       PWC_LVD1_Handler
                 .long       PWC_LVD2_Handler
@@ -504,7 +504,7 @@ Default_Handler:
                 Set_Default_Handler    CMP3_Handler
                 Set_Default_Handler    I2C_Handler
                 Set_Default_Handler    USART1_Handler
-                Set_Default_Handler    USART1_TCI_Handler
+                Set_Default_Handler    USART1_TxComplete_Handler
                 Set_Default_Handler    SPI_Handler
                 Set_Default_Handler    TMRA_5_Ovf_Udf_Handler
                 Set_Default_Handler    TMRA_5_Cmp_Handler
@@ -518,7 +518,6 @@ Default_Handler:
                 Set_Default_Handler    USART3_TxComplete_Handler
                 Set_Default_Handler    USART4_Handler
                 Set_Default_Handler    USART4_TxComplete_Handler
-                Set_Default_Handler    PLA_Handler
                 Set_Default_Handler    USART1_WKUP_Handler
                 Set_Default_Handler    PWC_LVD1_Handler
                 Set_Default_Handler    PWC_LVD2_Handler

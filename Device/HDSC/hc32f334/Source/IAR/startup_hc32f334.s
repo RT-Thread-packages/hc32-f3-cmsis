@@ -173,7 +173,7 @@ __vector_table
                 DCD     CMP3_Handler
                 DCD     I2C_Handler
                 DCD     USART1_Handler
-                DCD     USART1_TCI_Handler
+                DCD     USART1_TxComplete_Handler
                 DCD     SPI_Handler
                 DCD     TMRA_5_Ovf_Udf_Handler
                 DCD     TMRA_5_Cmp_Handler
@@ -187,7 +187,7 @@ __vector_table
                 DCD     USART3_TxComplete_Handler
                 DCD     USART4_Handler
                 DCD     USART4_TxComplete_Handler
-                DCD     PLA_Handler
+                DCD     0
                 DCD     USART1_WKUP_Handler
                 DCD     PWC_LVD1_Handler
                 DCD     PWC_LVD2_Handler
@@ -869,10 +869,10 @@ I2C_Handler
 USART1_Handler
                 B       USART1_Handler
 
-                PUBWEAK USART1_TCI_Handler
+                PUBWEAK USART1_TxComplete_Handler
                 SECTION .text:CODE:NOROOT:REORDER(1)
-USART1_TCI_Handler
-                B       USART1_TCI_Handler
+USART1_TxComplete_Handler
+                B       USART1_TxComplete_Handler
 
                 PUBWEAK SPI_Handler
                 SECTION .text:CODE:NOROOT:REORDER(1)
@@ -938,11 +938,6 @@ USART4_Handler
                 SECTION .text:CODE:NOROOT:REORDER(1)
 USART4_TxComplete_Handler
                 B       USART4_TxComplete_Handler
-
-                PUBWEAK PLA_Handler
-                SECTION .text:CODE:NOROOT:REORDER(1)
-PLA_Handler
-                B       PLA_Handler
 
                 PUBWEAK USART1_WKUP_Handler
                 SECTION .text:CODE:NOROOT:REORDER(1)
